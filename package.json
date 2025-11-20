@@ -4,8 +4,7 @@
   "description": "監控 Base 鏈上的 token 發行",
   "main": "monitor_wallet.js",
   "scripts": {
-    "monitor": "node monitor_wallet.js",
-    "check": "node check_wallet_history.js"
+    "monitor": "node monitor_wallet.js"
   },
   "dependencies": {
     "ethers": "^6.9.0"

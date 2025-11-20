@@ -36,11 +36,12 @@ async function monitorWallet() {
         );
       }
 
-      // 獲取區塊詳情（包含所有交易）
       const block = await provider.getBlock(blockNumber, true);
-
       if (block && block.transactions) {
-        for (const tx of block.transactions) {
+        for (const txHash of block.transactions) {
+          const tx = await block.getTransaction(txHash);
+          if (!tx) continue;
+
           // 檢查是否是從目標錢包發出的交易
           if (
             tx.from &&
